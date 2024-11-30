@@ -1,0 +1,118 @@
+<!doctype html>
+
+<title>d14, as a pet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Information hub for d14, as a pet." />
+<meta name="darkreader-lock" />
+<link rel="icon" href="/assets/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="/styles/index.css" />
+
+<main class="terminal">
+  <hgroup>
+    <h1 class="this nowrap"><span id="prefix">>_</span><span class="glitch">d14.pet</span></h1>
+    <p>
+      Information hub for
+      <span class="nowrap">
+        <span class="muted">it="</span><span class="glitch this">d14</span><span class="muted">"</span>,
+      </span>
+      <span class="nowrap">
+        as a
+        <a href="/puppygirl.html" class="this"><span class="glitch">pet</span></a
+        >.
+      </span>
+    </p>
+  </hgroup>
+
+  <section class="links">
+    <a class="link" role="button" href="https://libdb.so">
+      <img src="https://libdb.so/_fs/.icons/favicon.ico" />
+      <hgroup>
+        <h2>libdb.so</h2>
+        <p><em>Its</em> professional website and portfolio.</p>
+      </hgroup>
+    </a>
+
+    <a class="link" role="button" href="https://docs.d14.pet">
+      <img src="https://docs.d14.pet/favicon.png" class="invert" />
+      <hgroup>
+        <h2>docs.d14.pet</h2>
+        <p>Documentation on how to use, interact with and control <em>it</em>.</p>
+      </hgroup>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p class="muted">really cool friends!</p>
+  <section class="_88x31s">
+    <a href="https://libdb.so">
+      <img width="88" height="31" alt="badge for libdb.so" src="https://libdb.so/_fs/pics/88x31/d14.gif" />
+    </a>
+    <a href="https://0xd14.id">
+      <img width="88" height="31" alt="badge for 0xd14.id" src="https://libdb.so/_fs/pics/88x31/d14-dollcode.png" />
+    </a>
+    <a href="https://zvava.org">
+      <img width="88" height="31" alt="badge for zvava.org" src="https://libdb.so/_fs/pics/88x31/zvava.org.png" />
+    </a>
+    <a href="https://ezri.pet">
+      <img width="88" height="31" alt="badge for ezri.pet" src="https://libdb.so/_fs/pics/88x31/ezri.pet.png" />
+    </a>
+  </section>
+</footer>
+
+<script type="module">
+  import { PowerGlitch } from "https://esm.sh/v135/powerglitch@2.3.4";
+
+  function rand(num, l, r) {
+    return num + (Math.random() * (r - l) + l);
+  }
+
+  const glitchProfiles = {
+    ".glitch": {
+      shake: {
+        velocity: 20,
+        amplitudeX: 0.1,
+        amplitudeY: 0,
+      },
+      slice: {
+        count: 5,
+        velocity: 6,
+        maxHeight: 0.06,
+        hueRotate: false,
+      },
+    },
+    "h1 .glitch": {
+      shake: {
+        velocity: 20,
+        amplitudeX: 0.025,
+        amplitudeY: 0,
+      },
+      slice: {
+        count: 3,
+        velocity: 6,
+        minHeight: 0.005,
+        maxHeight: 0.02,
+        hueRotate: false,
+      },
+    },
+  };
+
+  for (const [selector, profile] of Object.entries(glitchProfiles)) {
+    document.querySelectorAll(selector).forEach((e) => {
+      PowerGlitch.glitch(e, {
+        playMode: "always",
+        hideOverflow: false,
+        timing: {
+          duration: rand(2000, -1000, 1000),
+        },
+        glitchTimeSpan: {
+          start: rand(0, 0, 0.4),
+          end: rand(0.8, -0.3, 0.2),
+        },
+        ...profile,
+      });
+    });
+  }
+</script>

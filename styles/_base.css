@@ -1,0 +1,87 @@
+@import "https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
+  layer(google-fonts);
+
+:root {
+  --accent: oklch(70% 0.1 336);
+
+  --fg: oklch(from var(--accent) 98% 35% h);
+  --fg-link: oklch(from var(--accent) 85% 50% h);
+  --fg-muted: oklch(from var(--accent) 50% 30% h);
+
+  --bg: oklch(from var(--accent) 10% 10% h);
+  --bg-2: oklch(from var(--accent) 15% 20% h);
+}
+
+:root {
+  --transition: 200ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition: 0;
+  }
+}
+
+html {
+  font-family: "PT Mono", monospace;
+  font-size: clamp(0.8rem, 0.667rem + 0.667vw, 1.1rem);
+
+  background: var(--bg);
+  color: var(--fg);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a:not([role="button"]) {
+  color: var(--fg-link);
+  &,
+  * {
+    text-decoration: dashed underline;
+  }
+}
+
+button,
+[role="button"] {
+  display: block;
+  padding: 0.5em 1em;
+
+  color: var(--fg);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: oklch(from var(--accent) l c h / 0.2);
+  }
+}
+
+mark {
+  background-color: oklch(from var(--accent) 90% calc(1.5 * c) h);
+  border-radius: 0.2em;
+  padding: 0.1em;
+}
+
+em {
+  font-style: italic;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.this {
+  color: var(--fg-link);
+  /* color: oklch(from var(--accent) 95% c h); */
+  text-shadow: 0 0 0.5em oklch(from var(--accent) 50% c h);
+}
+
+.muted {
+  color: var(--fg-muted);
+}

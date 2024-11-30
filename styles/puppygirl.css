@@ -1,0 +1,38 @@
+@import "/styles/_base.css" layer(base);
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+
+  align-items: center;
+  justify-content: center;
+
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+
+  box-shadow: 0 0 1em oklch(from var(--accent) 50% c h);
+  border: 2px solid var(--accent);
+}
+
+figure {
+  margin: 0.5em;
+
+  figcaption {
+    font-size: 1em;
+    margin-top: 1em;
+    text-align: center;
+  }
+}
