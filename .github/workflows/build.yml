@@ -15,10 +15,10 @@ jobs:
 
       - name: Build
         run: |
-          mkdir dist
-          cp -r * dist/
+          mkdir /tmp/dist
+          cp -r * /tmp/dist/
 
       - name: Upload to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: /tmp/dist
