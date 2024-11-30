@@ -99,20 +99,27 @@
     },
   };
 
-  for (const [selector, profile] of Object.entries(glitchProfiles)) {
-    document.querySelectorAll(selector).forEach((e) => {
-      PowerGlitch.glitch(e, {
-        playMode: "always",
-        hideOverflow: false,
-        timing: {
-          duration: rand(2000, -1000, 1000),
-        },
-        glitchTimeSpan: {
-          start: rand(0, 0, 0.4),
-          end: rand(0.8, -0.3, 0.2),
-        },
-        ...profile,
+  function enableGlitch() {
+    for (const [selector, profile] of Object.entries(glitchProfiles)) {
+      document.querySelectorAll(selector).forEach((e) => {
+        PowerGlitch.glitch(e, {
+          playMode: "always",
+          hideOverflow: false,
+          timing: {
+            duration: rand(2000, -1000, 1000),
+          },
+          glitchTimeSpan: {
+            start: rand(0, 0, 0.4),
+            end: rand(0.8, -0.3, 0.2),
+          },
+          ...profile,
+        });
       });
-    });
+    }
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (!prefersReducedMotion.matches) {
+    enableGlitch();
   }
 </script>
