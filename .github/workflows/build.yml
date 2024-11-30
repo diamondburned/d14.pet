@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    branches: ["*", "!main"]
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          mkdir dist
+          cp -r * dist/
+
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
