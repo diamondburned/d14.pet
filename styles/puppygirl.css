@@ -1,4 +1,4 @@
-@import "/styles/_base.css" layer(base);
+@import "_base.css" layer(base);
 
 body {
   display: grid;
